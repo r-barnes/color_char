@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+#Author: Richard Barnes (rbarnes@umn.edu)
 
 import argparse
 
