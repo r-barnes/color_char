@@ -3,6 +3,7 @@
 
 import argparse
 
+reset_color     = "\033[39m"
 char_color      = dict()
 char_color['1'] = '\033[35m'
 char_color['3'] = '\033[33m'
@@ -14,8 +15,5 @@ args = parser.parse_args()
 
 for line in args.input:
   for k,v in char_color.items():
-    line = line.replace(k,v+k)
+    line = line.replace(k,v+k+reset_color)
   print(line, end="")
-
-
-print("\033[39m")
