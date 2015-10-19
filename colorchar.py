@@ -20,7 +20,7 @@ for line in args.input:
   if args.boundary:
     for k,v in char_color.items():
       line = re.sub(r'(?<=\b)'+k+r'(?=\b)',v+k+reset_color,line)
-  else:
+  else: #TODO: Find a faster way of doing the following
     line_rep = ""
     for i in range(len(line)):
       if line[i] in char_color:
