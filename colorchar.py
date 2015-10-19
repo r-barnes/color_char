@@ -17,11 +17,17 @@ parser.add_argument('--boundary', '-b', action="store_const", const=True, defaul
 args = parser.parse_args()
 
 for line in args.input:
-  for k,v in char_color.items():
-    if args.boundary:
+  if args.boundary:
+    for k,v in char_color.items():
       line = re.sub(r'(?<=\b)'+k+r'(?=\b)',v+k+reset_color,line)
-    else:
-      line = re.sub(k,v+k+reset_color,line)
+  else:
+    line_rep = ""
+    for i in range(len(line)):
+      if line[i] in char_color:
+        line_rep += char_color[line[i]]+line[i]+reset_color
+      else:
+        line_rep += line[i]
+    line = line_rep
   print(line, end="")
 
 print(reset_color)
